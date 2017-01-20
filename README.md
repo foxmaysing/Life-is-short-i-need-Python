@@ -1,2 +1,4 @@
-# Life-is-shorti-i-need-Python
-always learning
+# Life is short, i need Python
+```
+(。・`ω´・)
+```
