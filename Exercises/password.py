@@ -1,3 +1,5 @@
+# 简单的密码登录器，密码可修改
+
 password_list = ['*#*#','13245']
 def account_login():
     password = input('Password:')
@@ -8,7 +10,7 @@ def account_login():
     elif password_reset:
         new_password = input('Enter a new password:')
         password_list.append(new_password)
-        print('Your password has changed successfully1')
+        print('Your password has changed successfully！')
         account_login()
     else:
         print('Wrong password or invalid input!')
