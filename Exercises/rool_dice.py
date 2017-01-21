@@ -1,3 +1,6 @@
+# 这是一个猜骰子大小的游戏，骰子个数为3
+# 初始资金为1000，默认赔率为1
+
 import random
 def roll_dice(numbers = 3, points = None):
     print('<<<<<< ROLL THE DICE >>>>>>')
