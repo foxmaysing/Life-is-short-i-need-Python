@@ -10,27 +10,35 @@ def roll_dice(numbers = 3, points = None):
     return points
 
 def roll_result(total):
-    isBig = 11 <= total <= 18
-    isSmall = 3 <= total <= 10
-    if isBig:
-        return 'Big'
-    elif isSmall:
-        return 'Small'
+    isbig = 11 <= total <= 18
+    issmall = 3 <= total <= 10
+    if isbig:
+        return 'big'
+    elif issmall:
+        return 'small'
 
 def start_game():
-    print('<<<<<< GAME STARTS ! >>>>>>')
-    choices = ['Big', 'Small']
-    your_choice = input('Big or Small:')
-    if your_choice in choices:
-        points = roll_dice()
-        total = sum(points)
-        youwin = your_choice == roll_result(total)
-        if youwin:
-            print('The points are', points, 'You win!')
+    your_money = 1000
+    while your_money > 0:
+        print('<<<<<< GAME STARTS ! >>>>>>')
+        choices = ['big', 'small']
+        your_choice = input('Big or small:')
+        if your_choice in choices:
+            your_bet = int(input('How much you wanna bet?  ~~~ '))
+            points = roll_dice()
+            total = sum(points)
+            youwin = your_choice == roll_result(total)
+            if youwin:
+                print('The points are', points, 'You Win!')
+                print('You gained {}, you have {} now.'.format(your_bet, your_money + your_bet))
+                your_money = your_money + your_bet
+            else:
+                print('The points are', points, 'You Lose!')
+                print('You lost {}, you have {} now.'.format(your_bet, your_money - your_bet))
+                your_money = your_money - your_bet
         else:
-            print('The points are', points, 'You lose!')
-        start_game()
+            print('Invalid Words')
+            start_game()
     else:
-        print('Invalid Words')
-        start_game()
+        print("Game over!")
 start_game()
