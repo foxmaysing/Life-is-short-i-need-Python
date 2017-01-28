@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 res = requests.get('http://news.sina.com.cn/world/')
 res.encoding = 'utf-8'
 soup = BeautifulSoup(res.text, 'lxml')
-#print(res.text)
+# print(res.text)
 
 for news in soup.select('.news-item  '):
     if len(news.select('h2')) > 0:
@@ -13,3 +13,4 @@ for news in soup.select('.news-item  '):
         print(time, h2, a)
 
 # class属性前面要加.
+# id属性前要加#
