@@ -6,4 +6,10 @@ soup = BeautifulSoup(res.text, 'lxml')
 #print(res.text)
 
 for news in soup.select('.news-item  '):
-    print(news.text)
+    if len(news.select('h2')) > 0:
+        h2 = news.select('h2')[0].text
+        time = news.select('.time')[0].text
+        a = news.select('a')[0]['href']
+        print(time, h2, a)
+
+# class属性前面要加.
