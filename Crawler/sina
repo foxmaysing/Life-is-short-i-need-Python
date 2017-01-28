@@ -1,4 +1,9 @@
 import requests
-res = requests.get('http://news.sina.com.cn/')
+from bs4 import BeautifulSoup
+res = requests.get('http://news.sina.com.cn/world/')
 res.encoding = 'utf-8'
-print(res.text)
+soup = BeautifulSoup(res.text, 'lxml')
+#print(res.text)
+
+for news in soup.select('.news-item  '):
+    print(news.text)
